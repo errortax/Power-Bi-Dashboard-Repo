@@ -1,0 +1,508 @@
+/* ================================
+   SMART Technologies BD — Brand Design System
+   Light Body · Deep Navy Text · Red & Blue Accents
+================================ */
+
+/* --------------------------------
+   Design Tokens
+-------------------------------- */
+:root {
+    /* ── Brand ────────────────────────── */
+    --brand-blue-deep:    #0a1f6e;
+    --brand-blue-mid:     #1535a8;
+    --brand-blue-bright:  #1e4fd8;
+    --brand-blue-label:   #1249c9;   /* label bg on image cards */
+    --brand-red:          #cc1c2e;
+    --brand-red-hover:    #e8202d8d;
+    --brand-red-deep:     #a01020;
+
+    /* ── Light Page Backgrounds ───────── */
+    --color-bg-base:      #f0f4fb;   /* soft blue-white page bg */
+    --color-bg-surface:   #ffffff;   /* card surface */
+    --color-bg-elevated:  #ffffff;   /* header */
+    --color-bg-section:   #e8eef8;   /* alternating section bg */
+
+    /* ── Borders ──────────────────────── */
+    --color-border-subtle: #d0daea;
+    --color-border-base:   #bccadf;
+    --color-border-accent: var(--brand-blue-mid);
+
+    /* ── Text — dark for contrast on light bg ── */
+    --color-text-primary:   #0d1b3e;   /* near-black navy */
+    --color-text-secondary: #3a527a;   /* dark blue-grey */
+    --color-text-tertiary:  #6b84aa;   /* captions */
+    --color-text-inverse:   #ffffff;   /* text on dark surfaces */
+
+    /* ── Shadows ──────────────────────── */
+    --shadow-card:  0 2px 12px rgba(13, 27, 62, 0.08), 0 1px 3px rgba(13, 27, 62, 0.05);
+    --shadow-lift:  0 16px 40px rgba(13, 27, 62, 0.16), 0 6px 16px rgba(13, 27, 62, 0.1);
+    --shadow-red:   0 4px 16px rgba(204, 28, 46, 0.32);
+
+    /* ── Radius ───────────────────────── */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+
+    /* ── Type ─────────────────────────── */
+    --font-sans: "Segoe UI", SegoeUI, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+}
+
+/* --------------------------------
+   Reset
+-------------------------------- */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* --------------------------------
+   Base
+-------------------------------- */
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg-base);
+    color: var(--color-text-primary);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* ================================
+   Header — dark navy, brand feel
+================================ */
+.ms-header {
+    background-color: var(--brand-blue-deep);
+    border-bottom: 3px solid var(--brand-red);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(10, 31, 110, 0.35);
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;        /* true vertical center for all children */
+    height: 68px;               /* fixed height — no min-height stretching */
+    gap: 24px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+/* Red badge square — brand mark */
+.logo-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--brand-red);
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.logo-badge span {
+    font-size: 15px;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: -1px;
+    line-height: 1;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.logo-text strong {
+    font-size: 15px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+}
+
+.logo-text span {
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.52);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+/* Nav */
+.main-nav {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    height: 100%;
+}
+
+.main-nav li {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.main-nav a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.68);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.03em;
+    padding: 0 18px;
+    position: relative;
+    transition: color 0.2s ease, background 0.2s ease;
+    white-space: nowrap;
+}
+
+/* Red bottom indicator line */
+.main-nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 12px;
+    right: 12px;
+    height: 3px;
+    background: var(--brand-red);
+    border-radius: 3px 3px 0 0;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.22s ease;
+}
+
+.main-nav a:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.main-nav a:hover::after {
+    transform: scaleX(1);
+}
+
+/* ================================
+   Hero — dark navy with diagonal
+================================ */
+.hero {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #060e28 0%, #0d1f6a 40%, #1535a8 75%, #0a1f6e 100%);
+    color: var(--color-text-inverse);
+    padding: 80px 0 88px;
+}
+
+/* Red diagonal swoosh — top left */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: -50px; left: -70px;
+    width: 300px; height: 180px;
+    background: var(--brand-red);
+    transform: rotate(-18deg);
+    opacity: 0.48;
+    border-radius: 4px;
+    filter: blur(2px);
+}
+
+/* Blue radial glow right */
+.hero::after {
+    content: "";
+    position: absolute;
+    top: -60px; right: -80px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(30,79,216,0.25) 0%, transparent 70%);
+}
+
+/* Bottom-right red swoosh */
+.hero-swoosh {
+    position: absolute;
+    bottom: -50px; right: -30px;
+    width: 240px; height: 150px;
+    background: var(--brand-blue-label);
+    transform: rotate(-18deg);
+    opacity: 0.38;
+    border-radius: 4px;
+    filter: blur(2px);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+}
+
+.hero h2 {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 18px;
+    letter-spacing: -0.8px;
+    line-height: 1.25;
+    color: #ffffff;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.3);
+}
+
+.hero p {
+    font-size: 16px;
+    color: rgba(240, 244, 255, 0.82);
+    max-width: 560px;
+    line-height: 1.75;
+}
+
+/* ================================
+   Dashboard Section — light bg
+================================ */
+.dashboard-library {
+    padding: 72px 0 80px;
+    background-color: var(--color-bg-base);
+}
+
+.section-header {
+    margin-bottom: 44px;
+}
+
+.section-header h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--color-text-primary);
+    letter-spacing: -0.4px;
+    padding-left: 14px;
+    border-left: 4px solid var(--brand-red);
+}
+
+.section-header p {
+    color: var(--color-text-secondary);
+    font-size: 15px;
+    padding-left: 18px;
+}
+
+/* ================================
+   Card Grid
+================================ */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+}
+
+/* ================================
+   Dashboard Card — Two modes:
+   1. Text-only card (no image)
+   2. Image card with gradient overlay
+================================ */
+.dashboard-card {
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border-base);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lift);
+    border-color: var(--brand-blue-mid);
+}
+
+/* ── Image area ─────────────────── */
+.card-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.dashboard-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+/* Gradient overlay — Microsoft style:
+   dark at bottom for legibility, brand blue tint */
+.card-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(10, 31, 110, 0.08) 0%,
+        rgba(10, 31, 110, 0.18) 40%,
+        rgba(10, 31, 110, 0.72) 75%,
+        rgba(10, 31, 110, 0.88) 100%
+    );
+    pointer-events: none;
+}
+
+/* Label sitting on top of image (like the MS reference) */
+.card-image-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    padding: 14px 18px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.25;
+    letter-spacing: -0.2px;
+    /* extra bottom gradient for label readability */
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(21, 53, 168, 0.45) 100%
+    );
+}
+
+/* ── Text content area ──────────── */
+.card-content {
+    padding: 22px 24px 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* For text-only cards: blue top edge */
+.dashboard-card:not(:has(.card-image)) {
+    border-top: 3px solid var(--brand-blue-mid);
+}
+
+.dashboard-card:not(:has(.card-image)):hover {
+    border-top-color: var(--brand-red);
+}
+
+.card-content h4 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--color-text-primary);
+    letter-spacing: -0.2px;
+}
+
+.card-content p {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    margin-bottom: 20px;
+    line-height: 1.65;
+    flex: 1;
+}
+
+/* ── Button ─────────────────────── */
+.dashboard-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    align-self: flex-start;
+    text-decoration: none;
+    background: var(--brand-blue-mid);
+    color: #ffffff;
+    padding: 9px 20px;
+    font-size: 13.5px;
+    font-weight: 700;
+    border-radius: var(--radius-sm);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: all 0.22s ease;
+    box-shadow: 0 2px 10px rgba(21, 53, 168, 0.25);
+}
+
+.dashboard-link::after {
+    content: "→";
+    font-size: 13px;
+    transition: transform 0.2s ease;
+}
+
+.dashboard-link:hover {
+    background: var(--brand-red);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-red);
+}
+
+.dashboard-link:hover::after {
+    transform: translateX(3px);
+}
+
+/* ================================
+   Footer
+================================ */
+.ms-footer {
+    background-color: var(--brand-blue-deep);
+    color: rgba(255, 255, 255, 0.55);
+    border-top: 3px solid var(--brand-red);
+    padding: 32px 0;
+    margin-top: 0;
+    text-align: center;
+    font-size: 13.5px;
+}
+
+.ms-footer a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.ms-footer a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* ================================
+   Responsive
+================================ */
+@media (max-width: 768px) {
+    .header-inner {
+        flex-direction: column;
+        height: auto;
+        align-items: flex-start;
+        padding: 14px 0 0;
+    }
+    .main-nav {
+        width: 100%;
+        height: auto;
+        border-top: 1px solid rgba(255,255,255,0.08);
+        margin-top: 10px;
+    }
+    .main-nav ul { flex-wrap: wrap; gap: 0; height: auto; }
+    .main-nav li { height: auto; }
+    .main-nav a { padding: 12px 16px; height: auto; font-size: 13px; }
+    .hero { padding: 56px 0 64px; }
+    .hero h2 { font-size: 26px; }
+    .hero p { font-size: 15px; }
+    .card-grid { grid-template-columns: 1fr; }
+    .dashboard-library { padding: 52px 0 60px; }
+    .section-header h3 { font-size: 21px; }
+}
